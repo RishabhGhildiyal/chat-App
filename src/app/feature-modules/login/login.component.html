@@ -1,0 +1,75 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  crossorigin="anonymous">
+
+<body>
+
+  <section class="login">
+
+    <div class="login_box">
+      <div class="left">
+        <!-- <div class="top_link"> <img src="../../../assets/logo.png" alt=""></div> -->
+        <div class="contact">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-tag">
+            <h3>SIGN IN</h3>
+            <div class="form">
+
+              <div>
+                <div class="email">
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+
+                    <input matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="loginForm.controls?.email?.errors?.required">
+                      Email is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="password">
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+
+                    <input matInput placeholder="Password" formControlName="password" required>
+                    <mat-error *ngIf="loginForm.controls?.password?.errors?.required">
+                      Password is required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="name">
+
+                  <mat-form-field class="example-full-width" appearance="fill">
+
+                    <input matInput placeholder="Name" formControlName="name" required>
+                    <mat-error *ngIf="loginForm.controls?.password?.errors?.required">
+                     Name is Required
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <button class="submit">LET'S GO</button>
+            <!-- <button [routerLink]="['/signup']" class="signup">SIGN UP</button>
+            <div class="forgetPassword">
+              <section class="example-section">
+                <mat-checkbox class="example-margin" >Remember me? </mat-checkbox>
+              </section>
+              <a href="forget-password">forget password</a>
+
+            </div> -->
+
+          </form>
+        </div>
+      </div>
+      <div class="right">
+
+        <div class="right-inductor"><img src="" alt=""></div>
+      </div>
+    </div>
+
+  </section>
+</body>
+
+</html>
+
+
+

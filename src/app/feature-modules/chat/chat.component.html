@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="title">
+          <img src="../../../assets/chat.jpg" width="35px" />
+          <h1>Chat App</h1>
+        </div>
+        <button type="button" onclick="show_hide()">
+          <img src="../../../assets/hamburger.png" width="50px" />
+        </button>
+      </header>
+      <div class="container">
+        <div class="users-window">
+          <div class="users-head">
+            <h3>Create/Join Group</h3>
+            <button mat-raised-button color="primary" (click)="openDialogue()">
+              Join
+            </button>
+            <!-- <h4>4</h4> -->
+          </div>
+          <div class="users-list" *ngFor="let contact of userList">
+            <mat-selection-list [multiple]="false">
+              <mat-list-option
+                [value]="contact"
+                (click)="onSelect(contact)"
+                style="color: white"
+              >
+                <img src="../../../assets/avatar 2.jpeg" />
+                <p>{{ contact?.roomName }}</p>
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </div>
+        <div class="chat-window">
+          <div class="chats">
+            <!-- <div class="user-join">
+            <p><b>Swapnil </b>Joined the chat</p>
+          </div> -->
+
+            <p *ngFor="let mess of messageArray">
+              {{ mess }}
+            </p>
+          </div>
+
+          <form [formGroup]="chatMessageForm">
+            <div class="user-input">
+              <input
+                formControlName="message"
+                (keyup)="$event.keyCode == 13 && sendMessage()"
+                type="text"
+                placeholder="Enter your message..."
+              />
+              <p (click)="sendMessage()">Send</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script>
+      var uwindow = document.querySelector(".users-window");
+      function show_hide() {
+        if ((uwindow.style.display = "block")) {
+          uwindow.style.display = "none";
+        } else {
+          uwindow.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
